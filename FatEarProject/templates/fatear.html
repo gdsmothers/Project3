@@ -1,0 +1,32 @@
+{% extends 'dashboard.html' %}
+
+
+{% block content %}
+{% for line in reviewing %}
+<h2>{{line.username}}'s Profile</h2>
+<form method="POST" action="{{ url_for('following')}}">
+    <input type="hidden" name='following' value="{{line.username}}">
+    <button type="submit" class="btn">Follow</button>
+</form>
+<form method="POST" action="{{ url_for('friendship')}}">
+    <input type="hidden" name='friendship' value="{{line.username}}">
+    <button type="submit" class="btn">Friends</button>
+</form>
+<div>
+    <table>
+        <tr>
+            <td>FatEar User:</td>
+            <td>{{line.fname}} {{line.lname}}</td>
+        </tr>
+        <tr>
+            <td>Nickname:</td>
+            <td>{{line.nickname}}</td>
+        </tr>
+        <tr>
+            <td>Last Seen:</td>
+            <td>{{line.lastlogin}}</td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+{% endblock %}

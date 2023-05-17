@@ -1,0 +1,34 @@
+{% extends 'dashboard.html' %}
+
+
+
+{% block content %}
+
+<html>
+<head>
+</head>
+<body>
+
+<form action="/reviewa" method="POST">
+	<label for="albumID">Choose a Album:</label>
+
+    <select name="albumID" id="albumID">
+    {% for album in list_of_albums %}
+        <option value={{album.albumID}}>{{album.albumName}}</option>
+    {% endfor %}
+    </select>
+    <input name="reviewText" type="text" placeholder="Let's Hear It" rows="100" required/></br></br>
+	<input type="submit" class="btn" value = "Post It" />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+    {% if success %}
+		<p ><strong>Sucess:</strong> {{success}}</p>
+	{% endif %}
+</form>
+
+</body>
+
+
+</html>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'dashboard.html' %}
+
+
+{% block content %}
+{% for line in reviewing %}
+<h2>{{line.albumName}} Profile</h2>
+
+<div>
+    <table>
+        <tr>
+            <td>Album ID:</td>
+            <td>{{line.albumID}}</td>
+        </tr>
+        <tr>
+            <td>Songs:</td>
+            <td>{{line.title}}</td>
+        </tr>
+    </table>
+    <p><strong>Album reviews:</strong></p>
+    <tr>
+        <p><strong>{{line.username}}</strong>
+        <br>
+        <strong>{{line.reviewText}}</strong>
+        <br>
+        {{line.reviewDate}}
+        </p>
+    </tr>
+
+    <p><strong>Album ratings:</strong></p>
+    <tr>
+        <p><strong>{{line.username}}</strong>
+        <br>
+        <td>Stars:</td>
+        <strong>{{line.stars}}</strong>
+        <br>
+        </p>
+    </tr>
+    {% endfor %}
+</div>
+{% endblock %}

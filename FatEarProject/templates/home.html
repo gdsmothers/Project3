@@ -1,0 +1,58 @@
+{% extends 'dashboard.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>{{username}}'s Dashboard </h2>
+
+
+
+<html>
+<head>
+</head>
+<body>
+
+	{% for line in reviewing %}
+	<tr>
+		<p><strong>{{line.username}}</strong>
+		<br>
+		<br>
+		<strong>{{line.title}}</strong>
+				{{line.reviewText}}
+		<br>
+		<br>
+		{{line.reviewDate}}
+		</p>
+	</tr>
+	<tr>
+		<p><strong>{{line.username}}</strong>
+		<br>
+		<br>
+		<strong>{{line.albumName}}</strong>
+				{{line.reviewText}}
+		<br>
+		<br>
+		{{line.reviewDate}}
+		</p>
+	</tr>
+	<tr>
+		<p><strong>{{line.fname}}</strong>
+		<br>
+		<br>
+		<strong>{{line.title}}</strong>
+				{{line.releaseDate}}
+		</p>
+	</tr>
+
+	{% endfor %}
+	
+
+<br>
+
+<br>
+
+</body>
+
+
+</html>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'dashboard.html' %}
+
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body>
+			<a href="/rates_page">
+				<button class="block"><b>Rate the Song</b></button>
+			</a>
+			<br>
+
+
+			<a href="/review_page">
+				<button class="block"><b>Review the Song</b></button>
+			</a>
+			<br> 
+
+			<a href="/ratea_page">
+				<button class="block"><b>Rate the Album</b></button>
+			</a>
+			<br>
+			<a href="/reviewa_page">
+				<button class="block"><b>Review the Album</b></button>
+			</a>
+			<br>
+
+	</body>
+</html>
+
+{% endblock %}

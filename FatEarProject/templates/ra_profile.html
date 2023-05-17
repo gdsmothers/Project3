@@ -1,0 +1,27 @@
+{% extends 'dashboard.html' %}
+
+
+{% block content %}
+{% for line in reviewing %}
+
+<div>
+    <table>
+        <tr>
+            <td>Review By:</td>
+            <td>{{line.username}}</td>
+        </tr>
+        <tr>
+            <td>Album:</td>
+            <td>{{line.albumName}}</td>
+        </tr>
+        <tr>
+            <td>Review:</td>
+            <td>{{line.reviewText}}</td>
+        </tr>
+        <tr>
+            <td>Posted:</td>
+            <td>{{line.reviewDate}}</td>
+        </tr>
+    </table>
+</div>
+{% endfor %}

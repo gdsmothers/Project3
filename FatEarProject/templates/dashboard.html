@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<i class="fa-solid fa-ear"></i><h1>FatEar</h1>
+                <a href="/home"><i class="fas fa-headphones"></i>Home</a>
+                <a href="/ratesreviews"><i class="fas fa-comments"></i>Let's Hear it</a> 
+				<a href="/user_profile"><i class="fas fa-user-circle"></i>Profile</a>
+				<a href="/logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+
+				<form method="POST" action="{{ url_for('search')}}" class="d-flex">
+		
+					<input class="form-control me-2" type="search" placeholder="Search for artists, songs, albums or other FatEars" aria-label="Search" name="searched">
+					<!-- <input type="hidden" name='profiles' value="{{profiles}}"> -->
+					<button class="btn btn-outline-secondary" type="submit">Search</button>
+				</form>
+			</div>
+		</nav>
+    
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

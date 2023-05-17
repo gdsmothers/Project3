@@ -1,0 +1,33 @@
+{% extends 'generaldash.html' %}
+
+{% block content %}
+
+	<br/>
+	<br/>
+	{% for item in data %}
+		{% if item.title %}
+		<h2><a href="{{ url_for('generalsong')}}">{{item.title}}</a></h2>
+		{% endif %}
+		{% if item.albumName %}
+		<h2><a href="{{ url_for('generalalbum')}}">{{item.albumName}}</a></h2>
+		{% endif %}
+		{% if item.fname %}
+		<h2><a href="{{ url_for('generalartist')}}">{{item.fname}}</a></h2>
+		{% endif %}
+		{% if item.reviewText %}
+		<h2><a href="{{ url_for('grs_profile')}}">{{item.reviewText}}</a></h2>
+		{% endif %}
+		{% if item.reviewText %}
+		<h2><a href="{{ url_for('gra_profile')}}">{{item.reviewText}}</a></h2>
+		{% endif %}
+	{% endfor %}
+
+	{% if error %}
+	<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+
+	<br/>
+	<br/>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'generaldash.html' %}
+
+
+{% block content %}
+{% for line in reviewing %}
+<h2>{{line.albumName}} Profile</h2>
+
+<div>
+    <table>
+        <tr>
+            <td>Album ID:</td>
+            <td>{{line.albumID}}</td>
+        </tr>
+        <tr>
+            <td>Songs:</td>
+            <td>{{line.title}}</td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+{% endblock %}

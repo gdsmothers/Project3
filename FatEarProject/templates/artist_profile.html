@@ -1,0 +1,36 @@
+{% extends 'dashboard.html' %}
+
+
+{% block content %}
+{% for line in reviewing %}
+<h2>{{line.fname}} {{line.lname}} Profile</h2>
+<form method="POST" action="{{ url_for('fans')}}">
+    <input type="hidden" name='fans' value="{{line.artistID}}">
+    <button type="submit" class="btn">Fan</button>
+    {% if success %}
+		<strong>Sucess:</strong> {{success}}
+	{% endif %}
+</form>
+
+<div>
+    <table>
+        <tr>
+            <td>Artist:</td>
+            <td>{{line.artistID}}</td>
+        </tr>
+        <tr>
+            <td>Biography:</td>
+            <td>{{line.artistBio}}</td>
+        </tr>
+        <tr>
+            <td>Website:</td>
+            <td><a href="{{line.artistURL}}">{{line.artistURL}}</a></td>
+        </tr>
+        <tr>
+            <td>Songs Performed:</td>
+            <td>{{line.title}}</td>
+        </tr>
+    </table>
+</div>
+{% endfor %}
+{% endblock %}

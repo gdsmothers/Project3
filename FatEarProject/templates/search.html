@@ -1,0 +1,36 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+
+	<br/>
+	<br/>
+	{% for item in data %}
+		{% if item.title %}
+		<h2><a href="{{ url_for('song_profile')}}">{{item.title}}</a></h2>
+		{% endif %}
+		{% if item.albumName %}
+		<h2><a href="{{ url_for('album_profile')}}">{{item.albumName}}</a></h2>
+		{% endif %}
+		{% if item.fname %}
+		<h2><a href="{{ url_for('artist_profile')}}">{{item.fname}}</a></h2>
+		{% endif %}
+		{% if item.username %}
+		<h2><a href="{{ url_for('fatear_profile')}}">{{item.username}}</a></h2>
+		{% endif %}
+		{% if item.reviewText %}
+		<h2><a href="{{ url_for('rs_profile')}}">{{item.reviewText}}</a></h2>
+		{% endif %}
+		{% if item.reviewText %}
+		<h2><a href="{{ url_for('ra_profile')}}">{{item.reviewText}}</a></h2>
+		{% endif %}
+	{% endfor %}
+
+	{% if error %}
+	<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+
+	<br/>
+	<br/>
+	</div>
+
+{% endblock %}

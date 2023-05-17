@@ -1,0 +1,50 @@
+{% extends 'dashboard.html' %}
+
+{% block title %}Profile{% endblock %}
+
+
+{% block content %}
+<h2>Profile</h2>
+<h3>Friend Requests</h3>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <form action="/user_profile" method="POST" novalidate>
+        <div>{% for ears in friends %}
+            <tr>
+                <p>
+                <strong>{{ears.user1}}</strong>
+                <input type="hidden" name='requestSentBy' value="{{ears.user1}}">
+                <br>
+                <br>
+                <label for="Accepted">
+                    Accept
+                </label>
+                <input type="radio" name='acceptStatus' id='Accepted' value='Accepted'>
+                <br>
+                <label for="Not Accepted">
+                    Decline
+                </label>
+                <input type="radio" name='acceptStatus' id='Not Accepted' value='Not Accepted'>
+                <br>
+                <br>
+                <!-- <input type="button" class="btn" value ="Decided" /> -->
+                <button type="submit" class="btn">Submit</button>
+                </p>
+            </tr>
+            {% endfor %}
+        </div>
+    </form>
+</body>
+</html>
+{% endblock %}
